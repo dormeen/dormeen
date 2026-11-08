@@ -388,3 +388,14 @@ footer{padding:56px 0 48px;font-size:14px;color:var(--muted)}
 .badge img{height:56px;width:auto}
 h1,h2,.sec-head p{text-wrap:balance}
 .types .sec-head h2{font-size:clamp(34px,3.6vw,48px)}
+
+/* new-in-1.0.44 tiles */
+.t-new{grid-column:span 6}
+.t-new .k{display:inline-block;margin-bottom:14px;padding:6px 14px;border-radius:999px;font-family:var(--display);font-weight:700;font-size:15px;background:rgba(255,246,221,.12);color:var(--cream)}
+.t-new-y{background:var(--yellow)}
+.t-new-y h3{color:var(--ink)}
+.t-new-y p{color:rgba(15,42,34,.72)}
+.t-new-y .k{background:rgba(15,42,34,.12);color:var(--ink)}
+.t-new-r{background:var(--red);box-shadow:none}
+.t-new-r p{color:rgba(255,246,221,.85)}
+@media (max-width:860px){.t-new{grid-column:span 12}}
