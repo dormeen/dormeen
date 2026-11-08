@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>تحدي دور مين</title>
+<meta name="description" content="وصلك تحدٍ من صديق في دور مين: ١٠ أسئلة سريعة. العب من المتصفح وشوف مين يغلب.">
+<meta name="theme-color" content="#003e32">
+<meta name="apple-itunes-app" content="app-id=6812690220">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ar_SA">
+<meta property="og:title" content="تحدي دور مين · مين يعرف أكثر؟">
+<meta property="og:description" content="١٠ أسئلة سريعة من صديقك. تقدر تغلبه؟">
+<meta property="og:image" content="https://dormeen.com/assets/img/og.jpg">
+<link rel="icon" href="../assets/img/icon-192.png">
+<style>
+@font-face{font-family:"Baloo";src:url(../assets/fonts/baloo-bhaijaan-2-arabic.woff2) format("woff2");font-weight:400 800;font-display:swap;unicode-range:U+0600-06FF,U+0750-077F,U+0870-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FEFF}
+@font-face{font-family:"Baloo";src:url(../assets/fonts/baloo-bhaijaan-2-latin.woff2) format("woff2");font-weight:400 800;font-display:swap;unicode-range:U+0000-00FF}
+@font-face{font-family:"Plex";src:url(../assets/fonts/plex-arabic-500-arabic.woff2) format("woff2");font-weight:500;font-display:swap;unicode-range:U+0600-06FF,U+0750-077F,U+FB50-FDFF,U+FE70-FEFF}
+@font-face{font-family:"Plex";src:url(../assets/fonts/plex-arabic-700-arabic.woff2) format("woff2");font-weight:700;font-display:swap;unicode-range:U+0600-06FF,U+0750-077F,U+FB50-FDFF,U+FE70-FEFF}
+@font-face{font-family:"Plex";src:url(../assets/fonts/plex-arabic-500-latin.woff2) format("woff2");font-weight:500;font-display:swap;unicode-range:U+0000-00FF}
+@font-face{font-family:"Plex";src:url(../assets/fonts/plex-arabic-700-latin.woff2) format("woff2");font-weight:700;font-display:swap;unicode-range:U+0000-00FF}
+:root{--bg:#fbf5e4;--card:#fff6dd;--green:#004438;--ink:#0f2a22;--ink2:#36504a;--muted:#6b7a71;--yellow:#ffd95a;--red:#bc171a;--ok:#1b7f4b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:500 17px/1.6 "Plex",system-ui,sans-serif;-webkit-font-smoothing:antialiased;min-height:100dvh;display:flex;flex-direction:column}
+header{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;color:var(--green)}
+header a{color:inherit;text-decoration:none;font:800 22px/1 "Baloo","Plex",sans-serif}
+header small{font-size:13px;color:var(--muted);font-weight:700}
+main{width:min(100% - 32px,560px);margin:0 auto;flex:1}
+h1{font:800 28px/1.3 "Baloo","Plex",sans-serif;color:var(--green);margin:4px 0 8px}
+h1 b{color:var(--red)}
+p{margin:0 0 10px;color:var(--ink2)}
+.card{background:var(--card);border-radius:22px;padding:20px;box-shadow:0 12px 32px rgba(0,34,27,.12)}
+.eyebrow{display:inline-block;font-size:12.5px;font-weight:800;letter-spacing:.3px;color:var(--muted);text-transform:uppercase}
+button{font:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent;min-height:52px;border-radius:14px;font-weight:800;font-size:17px;background:#fff;color:var(--green);border:2px solid var(--green);padding:0 18px;width:100%}
+button.primary{background:var(--green);color:var(--card)}
+button:disabled{opacity:.7;cursor:default}
+.field{display:grid;gap:6px;margin:14px 0}
+.field span{font-size:13px;font-weight:800;color:var(--ink2)}
+input{font:inherit;min-height:52px;border-radius:14px;border:2px solid rgba(15,42,34,.18);background:#fff;color:var(--ink);padding:0 14px;font-size:18px;font-weight:700;width:100%}
+.progress{display:flex;align-items:center;gap:12px;margin:0 0 10px;font-weight:900;color:var(--green)}
+.timer{position:relative;flex:1;height:30px;border-radius:999px;background:rgba(0,68,56,.12);overflow:hidden}
+.timer i{position:absolute;inset:0 auto 0 0;display:block;background:var(--yellow);transition:width .1s linear;width:100%}
+.timer b{position:absolute;inset:0;display:grid;place-items:center;font-size:14px}
+.q h1{font-size:23px;min-height:3.4em;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--ink)}
+.q img{width:100%;max-height:220px;object-fit:cover;border-radius:14px;margin-bottom:10px}
+.choices{display:grid;gap:10px}
+.choice{text-align:center;padding:10px 14px;border-color:rgba(15,42,34,.15);color:var(--ink)}
+.choice.ok{background:var(--ok);border-color:var(--ok);color:#fff;opacity:1}
+.choice.bad{background:var(--red);border-color:var(--red);color:#fff;opacity:1}
+.feedback{min-height:26px;text-align:center;font-weight:900;margin-top:10px}
+.feedback.ok{color:var(--ok)}.feedback.bad{color:var(--red)}
+.vs{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:start;margin:14px 0;text-align:center}
+.vs>div{padding:12px 8px;border-radius:16px;background:#fff;border:2px solid transparent}
+.vs>div.lead{border-color:var(--yellow);background:#fffbe9}
+.vs strong{display:block;font-size:14px;color:var(--ink2);word-break:break-word}
+.vs b{display:block;font:800 36px/1.1 "Baloo","Plex",sans-serif;color:var(--green)}
+.vs>span{align-self:center;font-weight:900;color:var(--muted)}
+.marks{display:flex;gap:5px;justify-content:center;margin:8px 0}
+.marks i{width:15px;height:15px;border-radius:50%;background:#e2d6b8}
+.marks i.ok{background:var(--ok)}
+.top{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:6px}
+.top li{display:flex;justify-content:space-between;padding:8px 12px;border-radius:12px;background:#fff;font-weight:800}
+.actions{display:grid;gap:10px;margin-top:16px}
+.cta{margin:18px 0 30px;text-align:center}
+.cta p{font-weight:700;color:var(--ink)}
+.cta .store{display:inline-flex;align-items:center;gap:10px;background:#000;color:#fff;border-radius:12px;padding:10px 16px;text-decoration:none;font-weight:700}
+.cta small{display:block;margin-top:8px;color:var(--muted)}
+.err{padding:10px 12px;border-radius:12px;background:#fde8e8;color:#8a1416;font-weight:700}
+.center{text-align:center}
+footer{padding:16px;text-align:center;color:var(--muted);font-size:13px}
+footer a{color:var(--green)}
+@media(min-width:600px){.choices{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header><a href="https://dormeen.com/">دور مين</a><small>تحدي يجمع الجميع</small></header>
+<main id="m"><div class="card center"><p>لحظة…</p></div></main>
+<footer><a href="https://dormeen.com/">dormeen.com</a> · <a href="https://dormeen.com/privacy.html">الخصوصية</a></footer>
+<script>
+(function(){
+  const SB='https://kczlvqacnmnsjxdjidsz.supabase.co',KEY='sb_publishable_A3OBjrphQLzg8mpzk8qjeg_gJmbLPuH';
+  const APP='https://apps.apple.com/sa/app/id6812690220';
+  const m=document.getElementById('m');
+  const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  async function rpc(name,args){const r=await fetch(`${SB}/rest/v1/rpc/${name}`,{method:'POST',headers:{apikey:KEY,Authorization:'Bearer '+KEY,'Content-Type':'application/json'},body:JSON.stringify(args)});if(!r.ok)throw new Error(await r.text());const t=await r.text();return t?JSON.parse(t):null}
+  const store={get(k){try{return JSON.parse(localStorage.getItem(k))}catch{return null}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch{}}};
+  function device(){let d=store.get('dm-device');if(typeof d!=='string'){d=crypto.randomUUID?crypto.randomUUID():'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g,c=>{const r=Math.random()*16|0;return (c==='x'?r:(r&3|8)).toString(16)});store.set('dm-device',d)}return d}
+  const pts=(ok,t)=>ok?100+Math.round((15-Math.min(15,Math.max(0,t)))*5):0;
+  const code=(new URLSearchParams(location.search).get('k')||'').trim().toUpperCase();
+  const cta=`<div class="cta"><p>حمّلوا دور مين وتحدّوا أصدقاءكم، والعبوا سهرة أسئلة كاملة على شاشة واحدة.</p><a class="store" href="${APP}">App Store · حمّل التطبيق</a><small>نسخة Android قريبا</small></div>`;
+  let ch=null,qs=[],i=0,answers=[],times=[],t0=0,timer=null,tick=null,name='',answered=false;
+  function stop(){clearTimeout(timer);clearInterval(tick);timer=tick=null}
+  function intro(err){
+    m.innerHTML=`<form class="card" id="f"><span class="eyebrow">وصلكم تحدٍ</span><h1>${esc(ch.creator_name)} جمع <b>${ch.creator_score}</b> نقطة</h1><p>١٠ أسئلة · ١٥ ثانية لكل سؤال${ch.plays?` · لعبه ${ch.plays} قبلكم`:''}</p>${err?`<p class="err">${esc(err)}</p>`:''}<label class="field"><span>اسمكم</span><input name="name" maxlength="24" autocomplete="nickname" placeholder="اسمك أو لقبك" value="${esc(store.get('dm-name')||'')}" required></label><button class="primary" type="submit">اقبل التحدي</button></form>${cta}`;
+    document.getElementById('f').addEventListener('submit',e=>{e.preventDefault();name=e.target.name.value.trim().slice(0,24);if(!name)return;store.set('dm-name',name);qs=ch.questions;i=0;answers=[];times=[];play()});
+  }
+  function play(){
+    stop();const q=qs[i];answered=false;
+    m.innerHTML=`<div class="progress"><span>${i+1} / ${qs.length}</span><span class="timer"><b>15</b><i></i></span></div><div class="card q">${q.img?`<img src="${esc(q.img)}" alt="">`:''}<h1>${esc(q.q)}</h1><div class="choices">${q.c.map((c,j)=>`<button type="button" class="choice" data-i="${j}">${esc(c)}</button>`).join('')}</div><p class="feedback"></p></div>`;
+    t0=Date.now();const bar=m.querySelector('.timer i'),num=m.querySelector('.timer b');
+    tick=setInterval(()=>{const left=Math.max(0,15-(Date.now()-t0)/1000);bar.style.width=(left/15*100)+'%';num.textContent=Math.ceil(left)},100);
+    timer=setTimeout(()=>answer(null),15000);
+    m.querySelectorAll('.choice').forEach(b=>b.addEventListener('click',()=>answer(Number(b.dataset.i))));
+  }
+  function answer(j){
+    if(answered)return;answered=true;stop();
+    const q=qs[i],t=Math.min(15,(Date.now()-t0)/1000),ok=j===q.a;
+    answers.push(j);times.push(Math.round(t*10)/10);
+    m.querySelectorAll('.choice').forEach((b,k)=>{b.disabled=true;if(k===q.a)b.classList.add('ok');else if(k===j)b.classList.add('bad')});
+    const fb=m.querySelector('.feedback');fb.textContent=ok?`صح! +${pts(true,t)}`:(j===null?'انتهى الوقت':'غلط');fb.className='feedback '+(ok?'ok':'bad');
+    timer=setTimeout(()=>{i++;if(i>=qs.length)finish();else play()},ok?900:1300);
+  }
+  async function finish(){
+    stop();m.innerHTML='<div class="card center"><p>نحفظ النتيجة…</p></div>';
+    try{
+      const r=await rpc('play_challenge',{code,player_name:name,answers,times,device:device()});
+      const me=r.score,them=r.creator_score,head=me>them?'غلبتوه! 🎉':me===them?'تعادل! 🤝':'غلبكم هالمرة';
+      const marks=a=>`<div class="marks">${(a||[]).map(ok=>`<i class="${ok?'ok':''}"></i>`).join('')}</div>`;
+      m.innerHTML=`<div class="card center"><h1>${head}</h1><div class="vs"><div class="${me>=them?'lead':''}"><strong>${esc(name)}</strong><b>${me}</b>${marks(r.correct)}</div><span>ضد</span><div class="${them>me?'lead':''}"><strong>${esc(r.creator_name)}</strong><b>${them}</b>${marks(r.creator_correct)}</div></div>${Array.isArray(r.top)&&r.top.length>1?`<ol class="top">${r.top.map(t=>`<li><span>${esc(t.name)}</span><b>${t.score}</b></li>`).join('')}</ol>`:''}<div class="actions"><button type="button" id="share">شاركوا النتيجة</button><a class="primary" href="${APP}" style="display:grid;place-items:center;min-height:52px;border-radius:14px;background:var(--green);color:var(--card);font-weight:800;text-decoration:none">ردّوا التحدي من التطبيق</a></div></div>${cta}`;
+      document.getElementById('share').addEventListener('click',async()=>{const text=`${me>them?`🎉 ${name} غلب ${r.creator_name} في دور مين`:`${r.creator_name} غلب ${name} في دور مين`}: ${me} ضد ${them}\nجربوا التحدي: ${location.origin}${location.pathname}?k=${code}`;try{if(navigator.share){await navigator.share({text});return}}catch(e){if(e&&e.name==='AbortError')return}location.href='https://wa.me/?text='+encodeURIComponent(text)});
+    }catch(e){
+      m.innerHTML=`<div class="card center"><p class="err">تعذر حفظ النتيجة. تحققوا من الاتصال وحاولوا مرة أخرى.</p><div class="actions"><button type="button" id="again">إعادة المحاولة</button></div></div>${cta}`;
+      document.getElementById('again').addEventListener('click',finish);
+    }
+  }
+  if(!/^[2-9A-Z]{6}$/.test(code)){m.innerHTML=`<div class="card center"><span class="eyebrow">دور مين</span><h1>تحدّوا أصدقاءكم</h1><p>من التطبيق: أنشئوا تحديا من ١٠ أسئلة وأرسلوا الرابط على واتساب. أصدقاؤكم يلعبون من هنا مباشرة.</p></div>${cta}`;return}
+  rpc('get_challenge',{code}).then(data=>{if(!data||!Array.isArray(data.questions)){m.innerHTML=`<div class="card center"><p class="err">ما لقينا هذا التحدي. ربما انتهت صلاحيته.</p></div>${cta}`;return}ch=data;intro()}).catch(()=>{m.innerHTML=`<div class="card center"><p class="err">تعذر تحميل التحدي. تحققوا من الاتصال.</p></div>${cta}`});
+})();
+</script>
+</body>
+</html>
